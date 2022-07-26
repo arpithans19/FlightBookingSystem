@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 public class HelloworldController {	
 	
-	@RequestMapping("/hellworld")
+	@RequestMapping("/checkin/hello")
 	public String helloWorld() {
 		return "hello world -checkin ";
 	}	
