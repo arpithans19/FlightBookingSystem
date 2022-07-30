@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import java.util.stream.*;
 
-import com.booking.model.Booking;
+import com.booking.model.Bookingf;
 import com.booking.model.HelloWorld1;
 
 @RestController
@@ -21,11 +21,11 @@ public class HelloworldController {
 	
 	
 	@RequestMapping("/hellworld/{hell}")
-	public Booking getHelloWorld(@PathVariable("hell") String str1) {
+	public Bookingf getHelloWorld(@PathVariable("hell") String str1) {
 		
 		HelloWorld1 helloWorld1= restTemplate.getForObject("http://localhost:8001/hellworld"+ str1, HelloWorld1.class);
 		helloWorld1.setStr1("Hello Booking");
-		return new Booking(helloWorld1.getStr1()
+		return new Bookingf(helloWorld1.getStr1()
 				);
 			
 //			HelloWorld2 helloWorld2= restTemplate.getForObject("http://localhost:8000/hellworld"+ a.str2, HelloWorld2.class);
