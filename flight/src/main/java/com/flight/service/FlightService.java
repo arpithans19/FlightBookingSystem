@@ -1,5 +1,7 @@
 package com.flight.service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import com.flight.entity.Flight;
@@ -7,16 +9,19 @@ import com.flight.model.ResponseTemplate;
 
 public interface FlightService {
 	
-	public List<Flight> getAllFlights();
+	List<Flight> getAllFlights();
+	
+	ResponseTemplate getFlightByFare(int flightId);
 
-//	public Flight getFlightById(int flightId);
+	Flight saveFlight(Flight flight);
 	
-	public ResponseTemplate getFlightByFare(int flightId);
+	void deleteFlight(int flightId);
 	
-	public Flight saveFlight(Flight flight);
-	
-	public void deleteFlight(int flightId);
-	
-	public Flight updateFlight(Flight flight);
+	Flight updateFlight(Flight flight);
 
+	Flight getFlightById(int flightId);
+
+	List<Flight> flightSearch(String fromLocation,String destination,LocalDate date);
+
+	public int getSequenceNumber(String sequenceName);
 }

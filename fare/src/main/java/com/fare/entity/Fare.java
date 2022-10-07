@@ -3,40 +3,47 @@ package com.fare.entity;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "fare")
 public class Fare {
 
+	@Transient
+	public static final String SEQUENCE_NAME="fare_sequence";
+
+
+
 	@Id
 	private int fareId;
-	private double economyFare;
-	private double premiumFare;
-	private double businessFare;
+	private String fareType;
+	private double farePrice;
+
 	public int getFareId() {
 		return fareId;
 	}
+
 	public void setFareId(int fareId) {
 		this.fareId = fareId;
 	}
-	public double getEconomyFare() {
-		return economyFare;
+
+	public String getFareType() {
+		return fareType;
 	}
-	public void setEconomyFare(double economyFare) {
-		this.economyFare = economyFare;
+
+	public void setFareType(String fareType) {
+		this.fareType = fareType;
 	}
-	public double getPremiumFare() {
-		return premiumFare;
+
+	public double getFarePrice() {
+		return farePrice;
 	}
-	public void setPremiumFare(double premiumFare) {
-		this.premiumFare = premiumFare;
+
+	public void setFarePrice(double farePrice) {
+		this.farePrice = farePrice;
 	}
-	public double getBusinessFare() {
-		return businessFare;
+
+	public static String getSequenceName() {
+		return SEQUENCE_NAME;
 	}
-	public void setBusinessFare(double businessFare) {
-		this.businessFare = businessFare;
-	}
-	
-	
 }

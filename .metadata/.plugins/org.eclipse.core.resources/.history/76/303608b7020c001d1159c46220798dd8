@@ -1,6 +1,0 @@
-package com.booking.model;
-
-public class Booking {
-	private String str3;
-
-}

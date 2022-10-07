@@ -3,31 +3,30 @@ package com.flight.model;
 public class Fare {
 
 	private int fareId;
-	private double economyFare;
-	private double premiumFare;
-	private double businessFare;
+	private String fareType;
+	private double farePrice;
+
 	public int getFareId() {
 		return fareId;
 	}
+
 	public void setFareId(int fareId) {
 		this.fareId = fareId;
 	}
-	public double getEconomyFare() {
-		return economyFare;
+
+	public String getFareType() {
+		return fareType;
 	}
-	public void setEconomyFare(double economyFare) {
-		this.economyFare = economyFare;
+
+	public void setFareType(String fareType) {
+		this.fareType = fareType;
 	}
-	public double getPremiumFare() {
-		return premiumFare;
+
+	public double getFarePrice() {
+		return farePrice;
 	}
-	public void setPremiumFare(double premiumFare) {
-		this.premiumFare = premiumFare;
-	}
-	public double getBusinessFare() {
-		return businessFare;
-	}
-	public void setBusinessFare(double businessFare) {
-		this.businessFare = businessFare;
+
+	public void setFarePrice(double farePrice) {
+		this.farePrice = farePrice;
 	}
 }

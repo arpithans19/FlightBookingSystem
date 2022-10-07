@@ -1,51 +1,62 @@
 package com.flight.entity;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Document(collection = "flight")
 public class Flight {
 
+	@Transient
+	public static final String SEQUENCE_NAME="flight_sequence";
+
 	@Id
 	private int flightId;
+	@NotEmpty(message = "fromLocation should not be null")
 	private String fromLocation;
 	private String destination;
-	private String date;
-	private String flightStatus;
-	private String seatNo;
+	private LocalDate date;
+	private String flightName;
 	private String flightType;
-	private int fareId;
+	private double farePrice;
 	
-	
-	
-	
-	public Flight() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Flight(int flightId, String fromLocation, String destination, String date, String flightStatus,
-			String seatNo, String flightType, int fareId) {
+	public Flight(int flightId, String fromLocation, String destination, LocalDate date, String flightName,
+			String flightType, double farePrice) {
 		super();
 		this.flightId = flightId;
 		this.fromLocation = fromLocation;
 		this.destination = destination;
 		this.date = date;
-		this.flightStatus = flightStatus;
-		this.seatNo = seatNo;
+		this.flightName = flightName;
 		this.flightType = flightType;
-		this.fareId = fareId;
+		this.farePrice = farePrice;
 	}
-	public int getFareId() {
-		return fareId;
+
+	public Flight() {
+		super();
 	}
-	public void setFareId(int fareId) {
-		this.fareId = fareId;
-	}
+
+
+
+
 	public String getFlightType() {
 		return flightType;
 	}
+
+	public double getFarePrice() {
+		return farePrice;
+	}
+
+	public void setFarePrice(double farePrice) {
+		this.farePrice = farePrice;
+	}
+
 	public void setFlightType(String flightType) {
 		this.flightType = flightType;
 	}
@@ -67,22 +78,24 @@ public class Flight {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
-	public String getDate() {
+	
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	public String getFlightStatus() {
-		return flightStatus;
+
+	public String getFlightName() {
+		return flightName;
 	}
-	public void setFlightStatus(String flightStatus) {
-		this.flightStatus = flightStatus;
+
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
 	}
-	public String getSeatNo() {
-		return seatNo;
-	}
-	public void setSeatNo(String seatNo) {
-		this.seatNo = seatNo;
+
+	public static String getSequenceName() {
+		return SEQUENCE_NAME;
 	}
 }
